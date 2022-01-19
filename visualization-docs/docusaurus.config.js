@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Visualization Library',
   tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://github.com/dhis2-club-tanzania',
+  baseUrl: '/dhis-visualization/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -24,7 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dhis2-club-tanzania/dhis-visualization/visualization-docs/tree/main/',
+          editUrl: 'https://github.com/dhis2-club-tanzania/dhis-visualization/edit/master/visualization-docs/',
         },
         blog: {
           showReadingTime: true,
