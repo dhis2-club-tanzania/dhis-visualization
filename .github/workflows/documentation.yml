@@ -17,14 +17,14 @@ jobs:
           node-version: 14.x
           cache: yarn
       - name: Build Visualization Docs
-        working-directory: visualization-docs
+        working-directory: ./visualization-docs
         run: |
           yarn install --frozen-lockfile
           yarn build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAGES_DEPLOY }}
           publish_dir: ./visualization-docs/build
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
