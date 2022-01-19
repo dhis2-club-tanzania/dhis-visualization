@@ -1,1 +1,1 @@
-export { sum } from './sum';
+export { D2Visualizer } from './core/visualizer';

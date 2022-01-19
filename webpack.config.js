@@ -38,25 +38,27 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyPlugin([
-      { from: 'lib/package.json', to: '' },
-      { from: 'lib/*.md', to: '', flatten: true },
-      { from: 'LICENSE', to: '' },
-    ]),
-    new TypedocWebpackPlugin(
-      {
-        name: 'Typescript Library',
-        mode: 'file',
-        out: '../docs',
-        theme: 'default',
-        exclude: ['**/*.spec.ts'],
-        includeDeclarations: false,
-        ignoreCompilerErrors: true,
-        excludeExternals: true,
-        excludeNotExported: true,
-        excludePrivate: true,
-      },
-      './lib'
-    ),
+    new CopyPlugin({
+      patterns: [
+        { from: 'lib/package.json', to: '' },
+        { from: 'lib/*.md', to: '' },
+        { from: 'LICENSE', to: '' },
+      ],
+    }),
+    // new TypedocWebpackPlugin(
+    //   {
+    //     name: 'Typescript Library',
+    //     mode: 'file',
+    //     out: '../docs',
+    //     theme: 'default',
+    //     exclude: ['**/*.spec.ts'],
+    //     includeDeclarations: false,
+    //     ignoreCompilerErrors: true,
+    //     excludeExternals: true,
+    //     excludeNotExported: true,
+    //     excludePrivate: true,
+    //   },
+    //   './lib'
+    // ),
   ],
 };
