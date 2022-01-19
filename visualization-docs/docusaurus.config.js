@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Visualization Library',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Welcome to DHIS Visualization Library',
   url: 'https://github.com/dhis2-club-tanzania',
   baseUrl: '/dhis-visualization/',
   onBrokenLinks: 'throw',
@@ -25,12 +25,6 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/dhis2-club-tanzania/dhis-visualization/edit/master/visualization-docs/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/dhis2-club-tanzania/dhis-visualization/visualization-docs/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -53,9 +47,9 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Library Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: 'api/intro',docId: 'intro' , label: 'API Documentation', position: 'left'},
           {
             href: 'https://github.com/dhis2-club-tanzania/dhis-visualization',
             label: 'GitHub',
