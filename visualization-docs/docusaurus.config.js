@@ -15,6 +15,7 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'dhis2-club-tanzania', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
+  trailingSlash: false,
 
   presets: [
     [
