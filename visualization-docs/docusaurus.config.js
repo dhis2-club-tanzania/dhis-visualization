@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Visualization Library',
   tagline: 'Welcome to DHIS Visualization Library',
-  url: 'https://github.com/dhis2-club-tanzania',
+  url: 'https://dhis2-club-tanzania.github.io',
   baseUrl: '/dhis-visualization/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -25,7 +25,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/dhis2-club-tanzania/dhis-visualization/edit/master/visualization-docs/',
+          editUrl:
+            'https://github.com/dhis2-club-tanzania/dhis-visualization/edit/master/visualization-docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -50,7 +51,12 @@ const config = {
             position: 'left',
             label: 'Library Documentation',
           },
-          {to: 'api/intro',docId: 'intro' , label: 'API Documentation', position: 'left'},
+          {
+            type: 'doc',
+            docId: 'intro',
+            label: 'API Documentation',
+            position: 'left',
+          },
           {
             href: 'https://github.com/dhis2-club-tanzania/dhis-visualization',
             label: 'GitHub',
