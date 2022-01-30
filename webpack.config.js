@@ -13,9 +13,9 @@ module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: './lib/src/index.ts',
   devtool: 'inline-source-map',
-  optimization: {
-    minimizer: [new UglifyJsPlugin()],
-  },
+  // optimization: {
+  //   minimizer: [new UglifyJsPlugin()],
+  // },
   module: {
     rules: [
       {
@@ -35,6 +35,17 @@ module.exports = {
     libraryTarget: 'umd',
     umdNamedDefine: true,
     globalObject: "typeof self !== 'undefined' ? self : this",
+  },
+  externals: {
+    lodash: {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+      amd: 'lodash',
+      root: '_',
+    },
+    '@iapps/function-analytics': '@iapps/function-analytics',
+    highcharts: 'highcharts',
+    'highcharts-grouped-categories': 'highcharts-grouped-categories',
   },
   plugins: [
     new CleanWebpackPlugin(),
