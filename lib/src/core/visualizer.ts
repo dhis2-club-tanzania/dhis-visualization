@@ -47,10 +47,7 @@ export class D2Visualizer {
    * @returns {D2Visualizer}
    */
   setConfig(config: any) {
-    console.log("Config:", config);
     this.config = new VisualizationConfiguration(config);
-    console.log("Latitude:", this.config.latitude);
-    console.log("Longitude:", this.config.longitude);
     return this;
   }
 

@@ -32,9 +32,6 @@ export class MapVisualization {
   
     draw() {
         try {
-
-            console.log("Rendering Map1");
-            console.log(this._config);
             let style = 'https://api.maptiler.com/maps/eef16200-c4cc-4285-9370-c71ca24bb42d/style.json?key=CH1cYDfxBV9ZBu1lHGqh';
             //declare let mapboxgl: any;
             mapboxgl.accessToken = 'pk.eyJ1IjoiaWJyYWhpbXdpY2thbWEiLCJhIjoiY2txM3Y2bXJ1MTJoZjJ2cXI1ZW9pdGg2biJ9.RZjlqK5FxQkQuFrh5lZm_g';
