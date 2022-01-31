@@ -1,7 +1,9 @@
 import React from 'react';
+import { D2Visualizer } from '../../../lib/src';
 import './app.scss';
 
 const App = () => {
+  (new D2Visualizer()).setId("vis").draw();
   return (
     <div className="full-screen">
       <div>
