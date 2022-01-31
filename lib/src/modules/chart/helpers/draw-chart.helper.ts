@@ -216,7 +216,7 @@ function getDrilldownParentSeries(
     };
   });
 
-  const newSeriesObject = {
+  const newSeriesObject: any = {
     name: seriesName,
     colorByPoint: true,
     data: seriesData,
@@ -347,7 +347,7 @@ function updateSeriesWithAxisOptions(
   touched: boolean = false
 ) {
   return _.map(series, (seriesObject: any) => {
-    const newSeriesObject = _.clone(seriesObject);
+    const newSeriesObject: any = _.clone(seriesObject);
     const availableAxisOption: any = _.find(multiAxisOptions, [
       'id',
       newSeriesObject.id,
@@ -406,12 +406,15 @@ function getRefinedXAxisCategories(series: any[]) {
         (seriesData) => {
           return _.map(seriesData, (data) => {
             const nameArray = data.name.split('_');
-            const newCategoryArray: _.List<any> = [];
+            let newCategoryArray: any[] = [];
             if (nameArray) {
               const reversedNameArray = _.reverse(nameArray);
               _.times(nameArray.length, (num: number) => {
                 if (num === 0) {
-                  newCategoryArray.push({ name: reversedNameArray[num] });
+                  newCategoryArray = [
+                    ...newCategoryArray,
+                    { name: reversedNameArray[num] },
+                  ];
                 } else {
                   const parentCategory: any = _.find(newCategoryArray, [
                     'name',
@@ -544,7 +547,7 @@ function getSortableSeries(
 }
 
 function getCombinedSeriesData(seriesData: any) {
-  let combinedSeriesData: string | _.List<any> = [];
+  let combinedSeriesData: any[] = [];
   seriesData.forEach((seriesDataArray: any[]) => {
     seriesDataArray.forEach((seriesDataObject: { id: any | string }) => {
       const availableSeriesData = _.find(combinedSeriesData, [
@@ -558,7 +561,7 @@ function getCombinedSeriesData(seriesData: any) {
           combinedSeriesData,
           availableSeriesData
         );
-        const newSeriesObject = { ...seriesDataObject };
+        const newSeriesObject: any = { ...seriesDataObject };
         newSeriesObject.y += availableSeriesData.y;
         combinedSeriesData = [
           ...combinedSeriesData.slice(0, seriesDataIndex),
@@ -900,7 +903,7 @@ function getTooltipOptions(chartConfiguration: any) {
 function getPlotOptions(chartConfiguration: any) {
   const plotOptionChartType = getAllowedChartType(chartConfiguration.type);
 
-  const plotOptions = {};
+  const plotOptions: any = {};
   if (plotOptionChartType) {
     switch (plotOptionChartType) {
       case 'solidgauge':
@@ -945,12 +948,12 @@ function getPlotOptions(chartConfiguration: any) {
           chartConfiguration.type === 'stacked_bar' ||
           chartConfiguration.type === 'area'
         ) {
-          plotOptions[plotOptionChartType].stacking =
+          (plotOptions as any)[plotOptionChartType].stacking =
             chartConfiguration.percentStackedValues ? 'percent' : 'normal';
         }
 
         if (chartConfiguration.type === 'dotted') {
-          plotOptions['line'] = {
+          (plotOptions as any)['line'] = {
             lineWidth: 0,
             states: {
               hover: {
@@ -1038,10 +1041,7 @@ function getLegendOptions(chartConfiguration: any) {
   };
 }
 
-function getXAxisOptions(
-  xAxisCategories: any[],
-  chartConfiguration: ChartConfiguration
-) {
+function getXAxisOptions(xAxisCategories: any[], chartConfiguration: any) {
   let xAxisOptions: any = {};
   const xAxisCategoriesNames = xAxisCategories.map(
     (category) => category?.name || ''
@@ -1299,7 +1299,7 @@ function mapAnalyticsToCumulativeFormat(
           ) {
             initialValue += parseInt(row[dataValueIndex], 10);
             const newRow = _.clone(row);
-            newRow[dataValueIndex] = initialValue;
+            (newRow as any)[dataValueIndex] = initialValue;
             newRows.push(newRow);
           }
         });
@@ -1310,10 +1310,7 @@ function mapAnalyticsToCumulativeFormat(
   return newAnalyticsObject;
 }
 
-function getSanitizedChartObject(
-  chartObject: any,
-  chartConfiguration: ChartConfiguration
-) {
+function getSanitizedChartObject(chartObject: any, chartConfiguration: any) {
   const dataSelectionGroups = _.flatten(
     _.filter(
       _.map(chartConfiguration.dataSelections || [], (dataSelection: any) => {
@@ -1343,7 +1340,7 @@ function getSanitizedChartObject(
     );
   });
 
-  let newDataIndexes: _.List<any> = [];
+  let newDataIndexes: any[] = [];
   _.each(dataIndexesArrayToRemove, (dataIndexes: number[]) => {
     newDataIndexes = newDataIndexes.length === 0 ? dataIndexes : newDataIndexes;
     newDataIndexes = _.intersection(newDataIndexes, dataIndexes);
