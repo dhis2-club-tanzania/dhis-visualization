@@ -5,7 +5,7 @@
   "private": true,
   "typings": "dist/index.d.ts",
   "scripts": {
-    "start:demo": "npm run build && cd demo && npm start",
+    "start:demo": "cd demo && npm start",
     "start": "webpack-dev-server --env dev",
     "build": "webpack --env prod",
     "test": "jest",

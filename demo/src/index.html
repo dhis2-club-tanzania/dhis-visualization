@@ -5,10 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>React, Webpack, Babel Starter Pack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
+  
+    <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+    <style>
+      .map-view-window {
+        width: 100%;
+        height: 82vh;
+        /* position: absolute; */
+      }
+    </style>
   </head>
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <!-- your react app will render here -->
     <div id="app"></div>
+
+    <div id="map" class="map-view-window" ></div>
   </body>
 </html>

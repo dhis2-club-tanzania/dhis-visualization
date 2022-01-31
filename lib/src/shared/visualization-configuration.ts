@@ -14,6 +14,23 @@ export class VisualizationConfiguration {
     return this.config?.type;
   }
 
+  get basemap(): string {
+    return this.config?.basemap;
+  }
+  get subtitle(): string {
+    return this.config?.subtitle;
+  }
+
+  get zoom(): number {
+    return this.config?.zoom;
+  }
+
+  get latitude(): string {
+    return this.config?.latitude;
+  }
+  get longitude(): string {
+    return this.config?.longitude;
+  }
   get hideEmptyColumns(): boolean {
     return this.config?.hideEmptyColumns;
   }

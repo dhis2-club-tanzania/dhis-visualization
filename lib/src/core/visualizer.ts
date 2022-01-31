@@ -1,5 +1,6 @@
 import { Fn } from '@iapps/function-analytics';
 import { ChartVisualization } from '../modules/chart/chart-visualizer';
+import { MapVisualization } from '../modules/map/map-visualizer';
 import { VisualizationConfiguration } from '../shared/visualization-configuration';
 import { VisualizationLayout } from '../shared/visualization-layout';
 import { ChartType, VisualizationType } from '../shared/visualization-type';
@@ -46,7 +47,10 @@ export class D2Visualizer {
    * @returns {D2Visualizer}
    */
   setConfig(config: any) {
+    console.log("Config:", config);
     this.config = new VisualizationConfiguration(config);
+    console.log("Latitude:", this.config.latitude);
+    console.log("Longitude:", this.config.longitude);
     return this;
   }
 
@@ -61,7 +65,7 @@ export class D2Visualizer {
 
   private getData(): Promise<any> {
     const analyticPromise = new Fn.Analytics();
-
+    console.log("this.dataSelections:", this.dataSelections);
     (this.dataSelections || []).forEach((dataSelection) => {
       switch (dataSelection.dimension) {
         case 'dx':
@@ -119,6 +123,14 @@ export class D2Visualizer {
           .setData(data.data)
           .setType(this.visualizationType as ChartType)
           .draw();
+      case 'MAP':
+        console.log("Rendering Map")
+        return new MapVisualization()
+          .setId(this.id)
+          .setConfig(this.config)
+          //.setData(data.data)
+          //.setType(this.visualizationType as ChartType)
+          .draw();
       default:
         return null;
     }
@@ -135,6 +147,14 @@ export class D2Visualizer {
           .setData(data.data)
           .setType(this.visualizationType as ChartType)
           .download(downloadFormat);
+      case 'MAP':
+
+        return new MapVisualization()
+          .setId(this.id)
+          .setConfig(this.config)
+          .setData(data.data)
+          .draw()
+          //.download(downloadFormat);
       default:
         return null;
     }
