@@ -25,6 +25,10 @@ export class VisualizationConfiguration {
     return this.config?.zoom;
   }
 
+  get fillColor(): string {
+    return this.config?.fillColor;
+  }
+
   get latitude(): string {
     return this.config?.latitude;
   }
